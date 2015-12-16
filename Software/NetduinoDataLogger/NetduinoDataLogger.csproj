@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <AssemblyName>NetduinoDataLogger</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>NetduinoDataLogger</RootNamespace>
+    <ProjectTypeGuids>{b69e3092-b931-443c-abe7-7e7b65f2a37f};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{84EA7321-F7E8-4EBD-A87B-FCC49C91CBDB}</ProjectGuid>
+    <TargetFrameworkVersion>v4.1</TargetFrameworkVersion>
+    <NetMfTargetsBaseDir Condition="'$(NetMfTargetsBaseDir)'==''">$(MSBuildExtensionsPath32)\Microsoft\.NET Micro Framework\</NetMfTargetsBaseDir>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
+  <ItemGroup>
+    <Compile Include="exMath.cs" />
+    <Compile Include="Formatters\DebugFormatter.cs" />
+    <Compile Include="PerformanceMonitor.cs" />
+    <Compile Include="Sensors\Accelerometer.cs" />
+    <Compile Include="Loggers\DebugLogger.cs" />
+    <Compile Include="Formatters\Formatter.cs" />
+    <Compile Include="Sensors\AsynchronousSensor.cs" />
+    <Compile Include="Sensors\GPS.cs" />
+    <Compile Include="Loggers\Logger.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Formatters\RunFormatter.cs" />
+    <Compile Include="Loggers\SDLogger.cs" />
+    <Compile Include="Sensors\OBD.cs" />
+    <Compile Include="Sensors\Sensor.cs" />
+    <Compile Include="Sensors\SynchronousSensor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.SPOT.Hardware" />
+    <Reference Include="Microsoft.SPOT.Hardware.SerialPort" />
+    <Reference Include="Microsoft.SPOT.Native" />
+    <Reference Include="SecretLabs.NETMF.Hardware" />
+    <Reference Include="SecretLabs.NETMF.Hardware.Netduino" />
+    <Reference Include="SecretLabs.NETMF.IO">
+      <HintPath>..\..\..\..\..\Desktop\Netduino\Firmware\SecretLabs.NETMF.IO_ALPHA_A1\SecretLabs.NETMF.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO" />
+  </ItemGroup>
+</Project>
